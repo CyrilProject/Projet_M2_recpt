@@ -1,0 +1,13 @@
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\bin\armproc.dll" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\bin\armjlink2.dll" 
+
+"C:\Users\CYRIM\Documents\IAR Embedded Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Exe\uart_example.out" 
+
+--plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\bin\armbat.dll" 
+
+--flash_loader "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\config\flashloader\NordicSemi\FlashNRF51822.board" 
+
+
+
+

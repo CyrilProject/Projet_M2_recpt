@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"
+     xml:lang="en">
+  <head>
+    <title>Information Center for ARM</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" media="all" href="file://$TOOLKIT_DIR$/doc/infocenter/style/ewic.css" />
+  </head>
+  <body>
+  <div id="topbanner"></div>
+  <div id="titlebanner_small">
+    <h2>Information Center for ARM</h2>
+  </div>
+  <div class="breadcrumb"><a href="$TOOLKIT_DIR$/doc/infocenter/index.JPN.html">Information Center for ARM</a> | EXAMPLES</div>
+  <div class="mainblock">
+   <h2>Example description</h2>
+
+   <pre>  <!--Insert readme.txt-->
+Example project on UART usage to communicate with PC
+
+DESCRIPTION
+===========
+ 
+   Simple UART example that transmits and receives through the configured pins as serial device.
+   The configure pins needs to be redirected to a COM port (for some terminal program like putty which
+  can listen to this COM port through a terminal session)
+   When the program start it will transmit "START: " through this serial device using @ref simple_uart_putstring
+  and this should be visible on the terminal.
+   All typed characters on this terminal will be transmitted to this program through @ref simple_uart_get and
+  when an exit character 'q' or 'Q' is typed this program will end into an infinite loop after transmitting 
+  "EXIT!" on the new line of the terminal.
+   note This example is not just for COM ports but can be used for any UART connection, COM port redirection
+        is for visual verification.
+   note Setting the define ENABLE_LOOPBACK_TEST will assume that the TX_PIN_NUMBER is connected to RX_PIN_NUMBER
+        and this example is used to test the loopback. In this case no com port can be used as the data flows
+        from TX to RX and ERROR_PIN is set high for any loss of data.
+   note Configure your terminal application for 38400 bauds, 8 data bits and 1 stop bit.
+ 
+  <a href="$CUR_DIR$/../../../../../Documentation/index.html" target="_blank">For more detailed information see nRF51 SDK.</a>
+
+COMPATIBILITY
+=============
+
+   The example project is compatible with, on Nordic Semi nRF6310 - PCA10005 evaluation
+  boards. By default, the project is configured to use the J-Link SWD interface.
+
+CONFIGURATION
+=============
+
+   Make sure that the following jumpers and swiches are correctly configured on the
+  nRF6310 evaluation board:
+  Switches:
+  S8  - VBUS
+  S9  - ON
+  S11 - ON
+  
+  PCA10005 board:
+  Jumpers:
+   K1 - 2-3
+   P4 - 1-3 2-4 (32 kHz crystal)
+
+  The Blinky application is downloaded to the iFlash.
+
+GETTING STARTED
+===============
+
+  1) Build and download the program.
+
+  2) Run the program.
+   </pre>
+
+  </div>
+  </body>
+</html>

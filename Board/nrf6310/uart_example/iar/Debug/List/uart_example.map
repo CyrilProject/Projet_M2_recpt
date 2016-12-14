@@ -1,0 +1,290 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.1.11864/W32 for ARM                14/Dec/2016  16:53:25
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Exe\uart_example.out
+#    Map file     =  
+#        C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\List\uart_example.map
+#    Command line =  
+#        "C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Obj\iar_startup_nrf51.o"
+#        "C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Obj\main.o"
+#        "C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Obj\radio_config.o"
+#        "C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Obj\simple_uart.o"
+#        "C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Obj\system_nrf51.o"
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        "C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Exe\uart_example.out"
+#        --map "C:\Users\CYRIM\Documents\IAR Embedded
+#        Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\List\uart_example.map"
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.5\arm\config\linker\NordicSemi\nRF51822_QFAA.icf" --semihosting
+#        --entry __iar_program_start --inline --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x0003ffff] { ro };
+"P2":  place in [from 0x20000000 to 0x20003fff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address   Size  Object
+  -------            ----        -------   ----  ------
+"A0":                                      0xc0
+  .intvec            ro code  0x00000000   0xc0  iar_startup_nrf51.o [1]
+                            - 0x000000c0   0xc0
+
+"P1":                                     0xd06
+  .text              ro code  0x000000c0  0x23c  simple_uart.o [1]
+  .text              ro code  0x000002fc   0x26  FltCmpLe.o [4]
+  .text              ro code  0x00000322   0xb0  FltMul.o [4]
+  .text              ro code  0x000003d2    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x000003d4   0x1e  I32ToFlt.o [4]
+  .text              ro code  0x000003f2    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x000003f4   0x26  FltToU32.o [4]
+  .text              ro code  0x0000041a  0x120  FltAddSub.o [4]
+  .text              ro code  0x0000053a   0xae  I32DivModFast.o [5]
+  .text              ro code  0x000005e8  0x19c  radio_config.o [1]
+  .text              ro code  0x00000784  0x194  main.o [1]
+  .text              ro code  0x00000918   0x30  I32ToDbl.o [4]
+  .text              ro code  0x00000948  0x184  DblMul.o [4]
+  .text              ro code  0x00000acc   0x62  DblToFlt.o [4]
+  .text              ro code  0x00000b2e    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000b30   0xf0  system_nrf51.o [1]
+  .text              ro code  0x00000c20   0x3c  zero_init3.o [5]
+  .text              ro code  0x00000c5c   0x30  copy_init3.o [5]
+  .text              ro code  0x00000c8c   0x2c  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000cb8   0x28  data_init.o [5]
+  .iar.init_table    const    0x00000ce0   0x24  - Linker created -
+  .text              ro code  0x00000d04   0x1a  cmain.o [5]
+  .text              ro code  0x00000d1e    0x8  exit.o [3]
+  .text              ro code  0x00000d26    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000d28    0xa  cexit.o [5]
+  .text              ro code  0x00000d32    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000d34   0x14  exit.o [6]
+  .rodata            const    0x00000d48    0xc  main.o [1]
+  .rodata            const    0x00000d54    0xc  simple_uart.o [1]
+  .text              ro code  0x00000d60    0xc  cstartup_M.o [5]
+  .rodata            const    0x00000d6c    0x8  main.o [1]
+  .rodata            const    0x00000d74    0x8  main.o [1]
+  .rodata            const    0x00000d7c    0x8  main.o [1]
+  .rodata            const    0x00000d84    0x8  main.o [1]
+  Initializer bytes  const    0x00000d8c    0x8  <for P2-1>
+  .text              ro code  0x00000d94    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000d96    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000d98    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000d9a    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000d9c    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000d9e    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000da0    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000da2    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000da4    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000da6    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000da8    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000daa    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000dac    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000dae    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000db0    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000db2    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000db4    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000db6    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000db8    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000dba    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000dbc    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000dbe    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000dc0    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000dc2    0x2  iar_startup_nrf51.o [1]
+  .text              ro code  0x00000dc4    0x2  iar_startup_nrf51.o [1]
+  .rodata            const    0x00000dc6    0x0  zero_init3.o [5]
+  .rodata            const    0x00000dc6    0x0  copy_init3.o [5]
+                            - 0x00000dc6  0xd06
+
+"P2", part 1 of 3:                          0x8
+  P2-1                        0x20000000    0x8  <Init block>
+    .data            inited   0x20000000    0x4  simple_uart.o [1]
+    .data            inited   0x20000004    0x4  system_nrf51.o [1]
+                            - 0x20000008    0x8
+
+"P2", part 2 of 3:                        0x800
+  CSTACK                      0x20000008  0x800  <Block>
+    CSTACK           uninit   0x20000008  0x800  <Block tail>
+                            - 0x20000808  0x800
+
+"P2", part 3 of 3:                         0x54
+  .bss               zero     0x20000808   0x34  main.o [1]
+  .bss               zero     0x2000083c   0x20  simple_uart.o [1]
+                            - 0x2000085c   0x54
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x54:
+          0x20000808  0x54
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x8:
+          0x00000d8c   0x8
+    1 destination range, total size 0x8:
+          0x20000000   0x8
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module               ro code  ro data  rw data
+    ------               -------  -------  -------
+C:\Users\CYRIM\Documents\IAR Embedded Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Obj: [1]
+    iar_startup_nrf51.o      296
+    main.o                   404       44       52
+    radio_config.o           412
+    simple_uart.o            572       16       36
+    system_nrf51.o           240        4        4
+    ----------------------------------------------
+    Total:                 1 924       64       92
+
+command line: [2]
+    ----------------------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    exit.o                     8
+    ----------------------------------------------
+    Total:                     8
+
+m6M_tl.a: [4]
+    DblMul.o                 388
+    DblToFlt.o                98
+    FltAddSub.o              288
+    FltCmpLe.o                38
+    FltMul.o                 176
+    FltToU32.o                38
+    I32ToDbl.o                48
+    I32ToFlt.o                30
+    ----------------------------------------------
+    Total:                 1 104
+
+rt6M_tl.a: [5]
+    I32DivModFast.o          174
+    cexit.o                   10
+    cmain.o                   26
+    copy_init3.o              48
+    cstartup_M.o              12
+    data_init.o               40
+    zero_init3.o              60
+    ----------------------------------------------
+    Total:                   370
+
+shb_l.a: [6]
+    exit.o                    20
+    ----------------------------------------------
+    Total:                    20
+
+    Linker created                     36    2 048
+--------------------------------------------------
+    Grand Total:           3 426      100    2 140
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00000ce0          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00000d04          --   Gb  - Linker created -
+?main                   0x00000d05         Code  Gb  cmain.o [5]
+CSTACK$$Base            0x20000008          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000808          --   Gb  - Linker created -
+Region$$Table$$Base     0x00000ce0          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000d04          --   Gb  - Linker created -
+SystemCoreClock         0x20000004    0x4  Data  Gb  system_nrf51.o [1]
+SystemInit              0x00000b31   0x28  Code  Gb  system_nrf51.o [1]
+__Vectors               0x00000000          --   Gb  iar_startup_nrf51.o [1]
+__Vectors_End           0x000000c0         Data  Gb  iar_startup_nrf51.o [1]
+__Vectors_Size {Abs}    0x000000c0          --   Gb  iar_startup_nrf51.o [1]
+__aeabi_cfcmple         0x000002fd         Code  Gb  FltCmpLe.o [4]
+__aeabi_d2f             0x00000acd         Code  Gb  DblToFlt.o [4]
+__aeabi_dmul            0x00000949         Code  Gb  DblMul.o [4]
+__aeabi_f2uiz           0x000003f5         Code  Gb  FltToU32.o [4]
+__aeabi_fadd            0x0000041b         Code  Gb  FltAddSub.o [4]
+__aeabi_fmul            0x00000323         Code  Gb  FltMul.o [4]
+__aeabi_fsub            0x0000048b         Code  Gb  FltAddSub.o [4]
+__aeabi_i2d             0x00000919         Code  Gb  I32ToDbl.o [4]
+__aeabi_ui2f            0x000003d5         Code  Gb  I32ToFlt.o [4]
+__aeabi_uidiv           0x0000053b         Code  Gb  I32DivModFast.o [5]
+__aeabi_uidivmod        0x0000053b         Code  Gb  I32DivModFast.o [5]
+__cmain                 0x00000d05         Code  Gb  cmain.o [5]
+__exit                  0x00000d35   0x14  Code  Gb  exit.o [6]
+__iar_copy_init3        0x00000c5d   0x30  Code  Gb  copy_init3.o [5]
+__iar_data_init3        0x00000cb9   0x28  Code  Gb  data_init.o [5]
+__iar_program_start     0x00000d61         Code  Gb  cstartup_M.o [5]
+__iar_ui2d              0x0000092d         Code  Gb  I32ToDbl.o [4]
+__iar_ui2f              0x000003d9         Code  Gb  I32ToFlt.o [4]
+__iar_zero_init3        0x00000c21   0x3c  Code  Gb  zero_init3.o [5]
+__vector_table          0x00000000         Data  Gb  iar_startup_nrf51.o [1]
+_call_main              0x00000d11         Code  Gb  cmain.o [5]
+_exit                   0x00000d29         Code  Gb  cexit.o [5]
+_main                   0x00000d1b         Code  Gb  cmain.o [5]
+exit                    0x00000d1f    0x8  Code  Gb  exit.o [3]
+h                       0x20000000    0x4  Data  Gb  simple_uart.o [1]
+is_disabled_in_debug_needed
+                        0x00000bc9   0x38  Code  Lc  system_nrf51.o [1]
+is_manual_peripheral_setup_needed
+                        0x00000b59   0x70  Code  Lc  system_nrf51.o [1]
+itoa                    0x0000018d   0xea  Code  Gb  simple_uart.o [1]
+main                    0x00000791  0x13a  Code  Gb  main.o [1]
+nrf_gpio_cfg_input      0x000000cd   0x12  Code  Lc  simple_uart.o [1]
+nrf_gpio_cfg_output     0x00000785    0xc  Code  Lc  main.o [1]
+nrf_gpio_cfg_output     0x000000c1    0xc  Code  Lc  simple_uart.o [1]
+packet                  0x20000808   0x34  Data  Lc  main.o [1]
+radio_configure         0x00000657   0xe0  Code  Gb  radio_config.o [1]
+simple_uart_config      0x00000119   0x74  Code  Gb  simple_uart.o [1]
+simple_uart_put         0x000000df   0x18  Code  Gb  simple_uart.o [1]
+simple_uart_putstring   0x000000f7   0x22  Code  Gb  simple_uart.o [1]
+swap_bits               0x000005e9   0x2e  Code  Lc  radio_config.o [1]
+swap_bytes              0x00000617   0x40  Code  Lc  radio_config.o [1]
+uart_conv_ascii         0x00000277   0x3e  Code  Gb  simple_uart.o [1]
+uart_conv_ascii::buf    0x2000083c   0x20  Data  Lc  simple_uart.o [1]
+
+
+[1] = C:\Users\CYRIM\Documents\IAR Embedded Workbench\arm\7.80.1\NordicSemi\nrf51822\Board\nrf6310\uart_example\iar\Debug\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = m6M_tl.a
+[5] = rt6M_tl.a
+[6] = shb_l.a
+
+  3 426 bytes of readonly  code memory
+    100 bytes of readonly  data memory
+  2 140 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
