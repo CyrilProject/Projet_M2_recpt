@@ -107,7 +107,7 @@ void simple_uart_config(  uint8_t rts_pin_number,
   NRF_UART0->EVENTS_RXDRDY    = 0;
 }
                           
-void itoa(float data, uint8_t decimal)
+void itoac(double data, uint8_t decimal)
 {
   
     uint8_t i;

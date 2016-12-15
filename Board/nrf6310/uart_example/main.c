@@ -43,6 +43,8 @@
 #include "nrf_gpio.h"
 #include "boards.h"
 #include "radio_config.h"
+#include <math.h>
+#include <stdlib.h>
 //#define ENABLE_LOOPBACK_TEST           /*!< if defined, then this example will be a loopback test, which means that TX should be connected to RX to get data loopback */
 
 #define ERROR_PIN                (8)   /*!< gpio pin number to show error if loopback is enabled */
@@ -114,8 +116,10 @@ static __INLINE void uart_start()
  */
 int main(void)
 {
-  int16_t data1, data2, data3, data;
+  int16_t data1, data2, data3, data[3];
   simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
+  double angle = 0.0;
+  
 
   // ERROR_PIN configure as output
   nrf_gpio_cfg_output(ERROR_PIN);
@@ -180,23 +184,28 @@ int main(void)
       data1 = (int16_t)packet[2];
       data2 = (int16_t)packet[3]<< 8;
 //      data3 = packet[4]<< 16;
-      data = data1+data2;
+      data[0] = data1+data2;
       simple_uart_putstring("X = " );
-      itoa(data*CONVERSION_G,3);
-      simple_uart_putstring(" , " );
+      itoac(data[0]*CONVERSION_G,3);
+      simple_uart_putstring(" ; " );
       data1 = (int16_t)packet[4];
       data2 = (int16_t)packet[5]<< 8;
 //      data3 = packet[7]<< 16;
-      data = data1+data2;
+      data[1] = data1+data2;
       simple_uart_putstring("Y = " );
-      itoa(data*CONVERSION_G,3);
-      simple_uart_putstring(" , " );
+      itoac(data[1]*CONVERSION_G,3);
+      simple_uart_putstring(" ; " );
       data1 = (int16_t)packet[6];
       data2 = (int16_t)packet[7]<< 8;
 //      data3 = packet[10]<< 16;
-      data = data1+data2;
+      data[2] = data1+data2;
       simple_uart_putstring("Z = " );
-      itoa(data*CONVERSION_G,3);
+      itoac(data[2]*CONVERSION_G,3);
+      // computes the angle alpha
+      angle = 180.0*acos(data[2]/(sqrt(pow(data[0],2)+pow(data[1],2)+pow(data[2],2))))/3.14159265;
+      simple_uart_putstring(" ; a = " );
+      itoac(angle,3);
+      
       simple_uart_putstring("      \r" );
 //      simple_uart_putstring("\033[2J" );
       

@@ -68,7 +68,7 @@ void simple_uart_config(uint8_t rts_pin_number, uint8_t txd_pin_number, uint8_t 
  *@}
  **/
    
-void itoa(float data, uint8_t decimal);
+void itoac(double data, uint8_t decimal);
 
 void reverse(char str[], int length);
 void uart_conv_ascii(uint32_t number);
