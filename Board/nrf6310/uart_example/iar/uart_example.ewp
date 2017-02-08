@@ -1925,6 +1925,12 @@
     </settings>
   </configuration>
   <file>
+    <name>$PROJ_DIR$\..\acc_gyr_computation.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\acc_gyr_computation.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</name>
   </file>
   <file>

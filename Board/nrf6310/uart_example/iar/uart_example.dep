@@ -2,46 +2,43 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>856804304</fileChecksum>
+  <fileChecksum>120222274</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Obj\radio_config.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Obj\simple_uart.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\config\linker\NordicSemi\nRF51822_QFAA.icf</file>
-      <file>$TOOLKIT_DIR$\lib\m6M_tl.a</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_gpio.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\simple_uart.h</file>
+      <file>$PROJ_DIR$\..\radio_config.c</file>
+      <file>$PROJ_DIR$\..\radio_config.h</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</file>
       <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51.h</file>
       <file>$PROJ_DIR$\Debug\Obj\system_nrf51.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\simple_uart.h</file>
       <file>$TOOLKIT_DIR$\CMSIS\Include\core_cm0.h</file>
       <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmFunc.h</file>
       <file>$PROJ_DIR$\Debug\Obj\main.o</file>
       <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
       <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
       <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_bitfields.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_deprecated.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\system_nrf51.h</file>
       <file>$PROJ_DIR$\Debug\Obj\simple_uart.o</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart_example.pbd</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_bitfields.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.__cstat.et</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_gpio.h</file>
+      <file>$TOOLKIT_DIR$\lib\m6M_tl.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\config\linker\NordicSemi\nRF51822_QFAA.icf</file>
+      <file>$PROJ_DIR$\Debug\Obj\radio_config.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\simple_uart.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\..\acc_gyr_computation.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</file>
-      <file>$PROJ_DIR$\..\radio_config.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</file>
-      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_delay.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\compiler_abstraction.h</file>
-      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmInstr.h</file>
+      <file>$PROJ_DIR$\..\acc_gyr_computation.c</file>
       <file>$PROJ_DIR$\Debug\Exe\uart_example_iar.hex</file>
       <file>$PROJ_DIR$\Debug\Obj\system_nrf51.pbi</file>
       <file>$PROJ_DIR$\..\..\..\..\Include\boards.h</file>
@@ -50,59 +47,30 @@
       <file>$PROJ_DIR$\Debug\Obj\iar_startup_nrf51.o</file>
       <file>$PROJ_DIR$\Debug\Obj\radio_config.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\radio_config.o</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\boards\nrf6310.h</file>
       <file>$PROJ_DIR$\Debug\Exe\uart_example.out</file>
       <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\boards\nrf6310.h</file>
       <file>$TOOLKIT_DIR$\lib\dl6M_tln.a</file>
       <file>$TOOLKIT_DIR$\lib\rt6M_tl.a</file>
       <file>$PROJ_DIR$\Debug\List\uart_example.map</file>
-      <file>$PROJ_DIR$\..\main.c</file>
-      <file>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</file>
-      <file>$PROJ_DIR$\..\radio_config.c</file>
-      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_deprecated.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\system_nrf51.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart_example.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_delay.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmInstr.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\compiler_abstraction.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\acc_gyr_computation.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\acc_gyr_computation.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</file>
     </outputs>
     <file>
-      <name>[ROOT_NODE]</name>
-      <outputs>
-        <tool>
-          <name>ILINK</name>
-          <file> 45 49</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 37</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 12</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 3</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 9 8 18 13 29 7 14 23 31 17 20 16 11 30 33 19 21 35 28 34</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 29 18 31 11 17 8 30 33 16 23 9 13 35 7 28 14 21 19 20 34</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</name>
+      <name>$PROJ_DIR$\..\radio_config.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
@@ -110,40 +78,21 @@
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 22</file>
+          <file> 40</file>
         </tool>
         <tool>
           <name>__cstat</name>
-          <file> 2</file>
+          <file> 26</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 28 18 29 19 6 31 10 33 34 13 35 7 23 32 11 30 17 8 9 20 21 14 16</file>
+          <file> 52 57 5 13 4 54 48 47 49 53 56 51 27 55 15 58 8 9 12 29 1</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 29 18 31 11 17 8 30 33 23 9 13 35 7 28 14 21 19 20 34 10 16 32 6</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Debug\Exe\uart_example.out</name>
-      <outputs>
-        <tool>
-          <name>ILINK</name>
-          <file> 49</file>
-        </tool>
-        <tool>
-          <name>OBJCOPY</name>
-          <file> 36</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ILINK</name>
-          <file> 4 41 15 43 22 12 46 48 5 47</file>
+          <file> 1 55 48 5 8 52 13 54 4 12 29 53 56 57 27 51 9 49 15 47 58</file>
         </tool>
       </inputs>
     </file>
@@ -152,25 +101,25 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 40</file>
+          <file> 37</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 15</file>
+          <file> 10</file>
         </tool>
         <tool>
           <name>__cstat</name>
-          <file> 0</file>
+          <file> 24</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 18 14 56 30 17 9 57 6 21 29 19 23 26 11 8 20 7 53 10 38 55 31 33 34 13 35 28 44 16 54</file>
+          <file> 13 9 19 53 12 5 20 22 49 52 15 48 1 4 29 47 27 17 7 35 18 54 56 58 8 57 51 43 11 16</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 16 29 18 31 11 17 8 30 33 23 9 13 35 7 28 14 21 19 20 34 10 6 38 44 26 55 57 54 56 53</file>
+          <file> 11 52 13 54 4 12 29 53 56 48 5 8 57 27 51 9 49 15 47 58 7 22 35 43 1 30 18 20 16 19 17</file>
         </tool>
       </inputs>
     </file>
@@ -179,36 +128,110 @@
       <outputs>
         <tool>
           <name>AARM</name>
-          <file> 41</file>
+          <file> 38</file>
         </tool>
       </outputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\radio_config.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 42</file>
+          <file> 34</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 43</file>
+          <file> 6</file>
         </tool>
         <tool>
           <name>__cstat</name>
-          <file> 1</file>
+          <file> 21</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 29 35 9 18 11 31 23 20 21 30 33 28 7 32 19 34 13 14 17 8 26</file>
+          <file> 5 29 13 8 52 27 9 48 54 12 47 11 4 53 56 15 49 57 51 58</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 26 32 23 9 13 29 18 31 11 17 8 30 33 35 7 28 14 21 19 20 34</file>
+          <file> 52 13 54 4 12 29 53 56 11 48 5 8 57 27 51 9 49 15 47 58</file>
         </tool>
       </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\acc_gyr_computation.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 59</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29 13 16 54 12 18 52 4 53 56 20 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\uart_example.out</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 46</file>
+        </tool>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 25 59 38 10 40 14 6 42 45 23 44</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51 13 52 15 22 54 7 56 58 8 57 27 48 55 4 53 12 29 5 47 49 9 11</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 52 13 54 4 12 29 53 56 48 5 8 57 27 51 9 49 15 47 58 7 11 55 22</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 41 46</file>
+        </tool>
+      </outputs>
     </file>
   </configuration>
   <configuration>
