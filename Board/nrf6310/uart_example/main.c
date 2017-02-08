@@ -43,6 +43,7 @@
 #include "nrf_gpio.h"
 #include "boards.h"
 #include "radio_config.h"
+#include "acc_gyr_computation.h"
 #include <math.h>
 #include <stdlib.h>
 //#define ENABLE_LOOPBACK_TEST           /*!< if defined, then this example will be a loopback test, which means that TX should be connected to RX to get data loopback */
@@ -65,10 +66,10 @@ Execution is blocked until UART peripheral detects all characters have been sent
 /** Sends 'Start: ' string to UART.
 Execution is blocked until UART peripheral detects all characters have been sent.
  */
-static __INLINE void uart_start()
-{
-  simple_uart_putstring((const uint8_t *)" \n\rStart: ");
-}
+//static __INLINE void uart_start()
+//{
+//  simple_uart_putstring((const uint8_t *)" \n\rStart: ");
+//}
 
 
 
@@ -116,8 +117,8 @@ static __INLINE void uart_start()
  */
 int main(void)
 {
-  int16_t data1, data2, data3, data[3];
-  simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
+  int16_t data1, data2, data[3];
+  //simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
   double angle = 0.0;
   
 
@@ -134,10 +135,10 @@ int main(void)
   /* Wait for the external oscillator to start up */
   while (NRF_CLOCK->EVENTS_HFCLKSTARTED == 0) 
   {
-  }
-  
+  } 
   simple_uart_putstring("\n\rStart :\n\r" );
-//  // Set Port 1 as output
+  
+//  Set Port 1 as output
 //  nrf_gpio_range_cfg_output(8, 15);
 
 // Set radio configuration parameters
@@ -172,42 +173,32 @@ int main(void)
     // Write received data to port 1 on CRC match
     if (NRF_RADIO->CRCSTATUS == 1U)
     {
-//      nrf_gpio_port_write(NRF_GPIO_PORT_SELECT_PORT1, packet[2]);
-//      uint8_t test[3];
-//      char ok[3];
-//      test[0]=packet[2];
-//      test[1]=packet[3];
-//      test[2]=packet[4];
-//      simple_uart_putstring("ceci est un test: \n\r");
-//      simple_uart_putstring((uint8_t *)itoa(100,ok,10));
-//      simple_uart_putstring((uint8_t *)"\n\r" );
-      data1 = (int16_t)packet[2];
-      data2 = (int16_t)packet[3]<< 8;
-//      data3 = packet[4]<< 16;
-      data[0] = data1+data2;
+
+      data1 = (int16_t)packet[2];                       // x lsb
+      data2 = (int16_t)packet[3]<< 8;                   // x msb
+      data[0] = data1+data2;                            // concat
       simple_uart_putstring("X = " );
       itoac(data[0]*CONVERSION_G,3);
-      simple_uart_putstring(" ; " );
-      data1 = (int16_t)packet[4];
-      data2 = (int16_t)packet[5]<< 8;
-//      data3 = packet[7]<< 16;
-      data[1] = data1+data2;
-      simple_uart_putstring("Y = " );
+      
+      data1 = (int16_t)packet[4];                       // y lsb
+      data2 = (int16_t)packet[5]<< 8;                   // y msb
+      data[1] = data1+data2;                            // concat
+      simple_uart_putstring(" ; Y = " );
       itoac(data[1]*CONVERSION_G,3);
-      simple_uart_putstring(" ; " );
-      data1 = (int16_t)packet[6];
-      data2 = (int16_t)packet[7]<< 8;
-//      data3 = packet[10]<< 16;
-      data[2] = data1+data2;
-      simple_uart_putstring("Z = " );
+
+      data1 = (int16_t)packet[6];                       // z lsb
+      data2 = (int16_t)packet[7]<< 8;                   // z msb
+      data[2] = data1+data2;                            // z concat
+      simple_uart_putstring(" ; Z = " );
       itoac(data[2]*CONVERSION_G,3);
+      
       // computes the angle alpha
-      angle = 180.0*acos(data[2]/(sqrt(pow(data[0],2)+pow(data[1],2)+pow(data[2],2))))/3.14159265;
+      angle = alpha_angle_acc(data[0], data[1], data[2]); // 180.0*acos(data[2]/(sqrt(pow(data[0],2)+pow(data[1],2)+pow(data[2],2))))/3.14159265;
       simple_uart_putstring(" ; a = " );
       itoac(angle,3);
       
       simple_uart_putstring("      \r" );
-//      simple_uart_putstring("\033[2J" );
+
       
     }
 
