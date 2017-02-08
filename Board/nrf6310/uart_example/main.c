@@ -118,7 +118,8 @@ Execution is blocked until UART peripheral detects all characters have been sent
 int main(void)
 {
   int16_t data1, data2, data[3];
-  //simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
+  int8_t packet_size, id;
+  simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
   double angle = 0.0;
   
 
@@ -173,30 +174,42 @@ int main(void)
     // Write received data to port 1 on CRC match
     if (NRF_RADIO->CRCSTATUS == 1U)
     {
+      packet_size = packet[0];                          
+      id = (int16_t)packet[2];                       // ID
+      
+      if(id == 0x1)                                  // data from IMU
+      {
+        data1 = (int16_t)packet[3];                     // x lsb
+        data2 = (int16_t)packet[4]<< 8;                 // x msb
+        data[0] = data1+data2;                          // concat
+        simple_uart_putstring("X = " );
+        itoac(data[0]*CONVERSION_G,3);
+        
+        data1 = (int16_t)packet[5];                     // y lsb
+        data2 = (int16_t)packet[6]<< 8;                 // y msb
+        data[1] = data1+data2;                          // concat
+        simple_uart_putstring(" ; Y = " );
+        itoac(data[1]*CONVERSION_G,3);
 
-      data1 = (int16_t)packet[2];                       // x lsb
-      data2 = (int16_t)packet[3]<< 8;                   // x msb
-      data[0] = data1+data2;                            // concat
-      simple_uart_putstring("X = " );
-      itoac(data[0]*CONVERSION_G,3);
-      
-      data1 = (int16_t)packet[4];                       // y lsb
-      data2 = (int16_t)packet[5]<< 8;                   // y msb
-      data[1] = data1+data2;                            // concat
-      simple_uart_putstring(" ; Y = " );
-      itoac(data[1]*CONVERSION_G,3);
-
-      data1 = (int16_t)packet[6];                       // z lsb
-      data2 = (int16_t)packet[7]<< 8;                   // z msb
-      data[2] = data1+data2;                            // z concat
-      simple_uart_putstring(" ; Z = " );
-      itoac(data[2]*CONVERSION_G,3);
-      
-      // computes the angle alpha
-      angle = alpha_angle_acc(data[0], data[1], data[2]); // 180.0*acos(data[2]/(sqrt(pow(data[0],2)+pow(data[1],2)+pow(data[2],2))))/3.14159265;
-      simple_uart_putstring(" ; a = " );
-      itoac(angle,3);
-      
+        data1 = (int16_t)packet[7];                     // z lsb
+        data2 = (int16_t)packet[8]<< 8;                 // z msb
+        data[2] = data1+data2;                          // z concat
+        simple_uart_putstring(" ; Z = " );
+        itoac(data[2]*CONVERSION_G,3);
+        
+        // computes the angle alpha
+        angle = alpha_angle_acc(data[0], data[1], data[2]); // 180.0*acos(data[2]/(sqrt(pow(data[0],2)+pow(data[1],2)+pow(data[2],2))))/3.14159265;
+        simple_uart_putstring(" ; a = " );
+        itoac(angle,3);
+      }
+      else if(id == 0x2)                             // data from debugger
+      {
+        for(int i = 0; i < packet_size; i++)
+        {
+          simple_uart_put(packet[3+i]);
+        }
+        
+      }
       simple_uart_putstring("      \r" );
 
       
