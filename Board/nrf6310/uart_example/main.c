@@ -52,6 +52,8 @@
 #define MAX_TEST_DATA_BYTES      (15U) /*!< max number of test bytes to be used for tx and rx */
 #define MAX_PACKET_SIZE (50U)
 #define CONVERSION_G 0.000244
+#define ID_ACC          0x1
+#define ID_COMMAND      0x2
 static uint8_t volatile packet[MAX_PACKET_SIZE];  ///< Received packet buffer
 
 
@@ -121,7 +123,7 @@ int main(void)
   int8_t packet_size, id;
   simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
   double angle = 0.0;
-  
+  uint8_t count_encoder = 0;
 
   // ERROR_PIN configure as output
   nrf_gpio_cfg_output(ERROR_PIN);
@@ -146,7 +148,7 @@ int main(void)
   radio_configure();
 
 //  nrf_gpio_port_write(NRF_GPIO_PORT_SELECT_PORT1, 0x55);
-
+  
   while(true)
   {
     // Set payload pointer
@@ -177,7 +179,7 @@ int main(void)
       packet_size = packet[0];                          
       id = (int16_t)packet[2];                       // ID
       
-      if(id == 0x1)                                  // data from IMU
+      if(id == ID_ACC)                                  // data from IMU
       {
         data1 = (int16_t)packet[3];                     // x lsb
         data2 = (int16_t)packet[4]<< 8;                 // x msb
@@ -202,12 +204,13 @@ int main(void)
         simple_uart_putstring(" ; a = " );
         itoac(angle,3);
       }
-      else if(id == 0x2)                             // data from debugger
+      else if(id == ID_COMMAND)                             // data from debugger
       {
-        for(int i = 0; i < packet_size; i++)
-        {
-          simple_uart_put(packet[3+i]);
-        }
+         simple_uart_putstring("Count = " );
+         count_encoder = (uint8_t) packet[3];
+         itoac(count_encoder,0);
+        
+        
         
       }
       simple_uart_putstring("      \r" );
