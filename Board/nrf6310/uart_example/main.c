@@ -115,7 +115,8 @@ Execution is blocked until UART peripheral detects all characters have been sent
 
 /**
  * main() function
- * @return 0. int return type required by ANSI/ISO standard.
+ * @return 0. int return type required by ANSI/ISO standard.simple_uart_putstring(" lvl battery = " );
+        itoac(packet[9]*0.004706,2);
  */
 int main(void)
 {
@@ -198,11 +199,15 @@ int main(void)
         data[2] = data1+data2;                          // z concat
         simple_uart_putstring(" ; Z = " );
         itoac(data[2]*CONVERSION_G,3);
+               
         
         // computes the angle alpha
         angle = alpha_angle_acc(data[0], data[1], data[2]); // 180.0*acos(data[2]/(sqrt(pow(data[0],2)+pow(data[1],2)+pow(data[2],2))))/3.14159265;
         simple_uart_putstring(" ; a = " );
         itoac(angle,3);
+        
+        simple_uart_putstring(" lvl battery = " );
+        itoac(packet[9]*0.004706*3.79,2);
       }
       else if(id == ID_COMMAND)                             // data from debugger
       {
