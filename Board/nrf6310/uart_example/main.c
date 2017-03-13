@@ -178,9 +178,13 @@ int main(void)
     if (NRF_RADIO->CRCSTATUS == 1U)
     {
       packet_size = packet[0];                          
-      id = (int16_t)packet[2];                       // ID
+      id = (int16_t)packet[2];                          // ID
       
+<<<<<<< Updated upstream
       if(id == ID_ACC)                                  // data from IMU
+=======
+      if(id == 0x1)                                     // data from IMU
+>>>>>>> Stashed changes
       {
         data1 = (int16_t)packet[3];                     // x lsb
         data2 = (int16_t)packet[4]<< 8;                 // x msb
@@ -201,14 +205,15 @@ int main(void)
         itoac(data[2]*CONVERSION_G,3);
                
         
-        // computes the angle alpha
-        angle = alpha_angle_acc(data[0], data[1], data[2]); // 180.0*acos(data[2]/(sqrt(pow(data[0],2)+pow(data[1],2)+pow(data[2],2))))/3.14159265;
+        // computes the angle alpha between the sensor 
+        angle = alpha_angle_acc(data[0], data[1], data[2]); 
         simple_uart_putstring(" ; a = " );
         itoac(angle,3);
         
         simple_uart_putstring(" lvl battery = " );
         itoac(packet[9]*0.004706*3.79,2);
       }
+<<<<<<< Updated upstream
       else if(id == ID_COMMAND)                             // data from debugger
       {
          simple_uart_putstring("Count = " );
@@ -216,8 +221,24 @@ int main(void)
          itoac(count_encoder,0);
         
         
+=======
+      else if(id == 0x2)                                // data from debugger
+      {
+        for(int i = 0; i < packet_size; i++)
+        {
+          itoac(packet[3+i]);
+        }       
+      }
+      else if(id == 0x3)                                // data from trigger
+      {
+>>>>>>> Stashed changes
         
       }
+      else
+      {
+         simple_uart_putstring("Error ! Data ID does not fit" );
+      }
+      
       simple_uart_putstring("      \r" );
 
       

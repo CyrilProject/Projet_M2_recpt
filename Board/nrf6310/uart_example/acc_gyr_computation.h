@@ -14,11 +14,13 @@
 
 #include <stdint.h>
 
-double complementary_filter(double acc_angle, double gyr_angle);
+double complementary_filter(double acc_angle, double gyr_angle, double previous_angle, float dt);
 
 double alpha_angle_acc(const int16_t acc_x, const int16_t acc_y, const int16_t acc_z);
 
 double yaw_angle_gyr(double previous_angle, int16_t gyr_z, double time);
+
+
 
 #endif
 

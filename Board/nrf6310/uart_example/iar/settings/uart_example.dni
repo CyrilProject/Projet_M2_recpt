@@ -120,7 +120,11 @@ TraceBufferSize=0x00000000
 TraceShowTime=0
 TraceShowTimeFreq=1000000
 [DebugChecksum]
+<<<<<<< Updated upstream
 Checksum=-589949499
+=======
+Checksum=1724811454
+>>>>>>> Stashed changes
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
