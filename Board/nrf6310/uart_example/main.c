@@ -48,12 +48,13 @@
 #include <stdlib.h>
 //#define ENABLE_LOOPBACK_TEST           /*!< if defined, then this example will be a loopback test, which means that TX should be connected to RX to get data loopback */
 
-#define ERROR_PIN                (8)   /*!< gpio pin number to show error if loopback is enabled */
-#define MAX_TEST_DATA_BYTES      (15U) /*!< max number of test bytes to be used for tx and rx */
-#define MAX_PACKET_SIZE (50U)
-#define CONVERSION_G 0.000244
-#define ID_ACC          0x1
-#define ID_COMMAND      0x2
+#define ERROR_PIN               (8)   /*!< gpio pin number to show error if loopback is enabled */
+#define MAX_TEST_DATA_BYTES     (15U) /*!< max number of test bytes to be used for tx and rx */
+#define MAX_PACKET_SIZE         (50U)
+#define CONVERSION_G            0.000244
+#define ID_ACC                  0x1
+#define ID_COMMAND              0x2
+#define USER_ID                 0xFFFF
 static uint8_t volatile packet[MAX_PACKET_SIZE];  ///< Received packet buffer
 
 
@@ -120,7 +121,7 @@ Execution is blocked until UART peripheral detects all characters have been sent
  */
 int main(void)
 {
-  int16_t data1, data2, data[3];
+  int16_t data1, data2, data[3], user_id = 0xFFFF;
   int8_t packet_size, id;
   simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
   double angle = 0.0;
@@ -163,6 +164,8 @@ int main(void)
     while(NRF_RADIO->EVENTS_READY == 0U)
     {
     }
+    
+    simple_uart_putstring("\n\rRadio event ready :\n\r" );
 
     NRF_RADIO->EVENTS_END = 0U;
 
@@ -174,73 +177,66 @@ int main(void)
     {
     }
 
+    simple_uart_putstring("\n\rAddress recieved event :\n\r" );
+    
     // Write received data to port 1 on CRC match
     if (NRF_RADIO->CRCSTATUS == 1U)
     {
       packet_size = packet[0];                          
-      id = (int16_t)packet[2];                          // ID
+      user_id = (int16_t)packet[2] + ((int16_t)packet[3] << 8); // USER ID
+      simple_uart_putstring("\n\rID recieved :\n\r" );
       
-<<<<<<< Updated upstream
-      if(id == ID_ACC)                                  // data from IMU
-=======
-      if(id == 0x1)                                     // data from IMU
->>>>>>> Stashed changes
+      if(user_id == (int16_t)USER_ID)
       {
-        data1 = (int16_t)packet[3];                     // x lsb
-        data2 = (int16_t)packet[4]<< 8;                 // x msb
-        data[0] = data1+data2;                          // concat
-        simple_uart_putstring("X = " );
-        itoac(data[0]*CONVERSION_G,3);
-        
-        data1 = (int16_t)packet[5];                     // y lsb
-        data2 = (int16_t)packet[6]<< 8;                 // y msb
-        data[1] = data1+data2;                          // concat
-        simple_uart_putstring(" ; Y = " );
-        itoac(data[1]*CONVERSION_G,3);
-
-        data1 = (int16_t)packet[7];                     // z lsb
-        data2 = (int16_t)packet[8]<< 8;                 // z msb
-        data[2] = data1+data2;                          // z concat
-        simple_uart_putstring(" ; Z = " );
-        itoac(data[2]*CONVERSION_G,3);
-               
-        
-        // computes the angle alpha between the sensor 
-        angle = alpha_angle_acc(data[0], data[1], data[2]); 
-        simple_uart_putstring(" ; a = " );
-        itoac(angle,3);
-        
-        simple_uart_putstring(" lvl battery = " );
-        itoac(packet[9]*0.004706*3.79,2);
-      }
-<<<<<<< Updated upstream
-      else if(id == ID_COMMAND)                             // data from debugger
-      {
-         simple_uart_putstring("Count = " );
-         count_encoder = (uint8_t) packet[3];
-         itoac(count_encoder,0);
-        
-        
-=======
-      else if(id == 0x2)                                // data from debugger
-      {
-        for(int i = 0; i < packet_size; i++)
+        id = packet[4];                                 // packet id
+        if(id == (int8_t)ID_ACC)                        // data from IMU
         {
-          itoac(packet[3+i]);
-        }       
-      }
-      else if(id == 0x3)                                // data from trigger
-      {
->>>>>>> Stashed changes
+          data1 = (int16_t)packet[5];                   // x lsb
+          data2 = (int16_t)packet[6] << 8;              // x msb
+          data[0] = data1 + data2;                        // concat
+          simple_uart_putstring("X = " );
+          itoac(data[0]*CONVERSION_G,3);
+          
+          data1 = (int16_t)packet[7];                   // y lsb
+          data2 = (int16_t)packet[8] << 8;              // y msb
+          data[1] = data1 + data2;                        // concat
+          simple_uart_putstring(" ; Y = " );
+          itoac(data[1]*CONVERSION_G,3);
+
+          data1 = (int16_t)packet[9];                   // z lsb
+          data2 = (int16_t)packet[10] << 8;             // z msb
+          data[2] = data1 + data2;                        // z concat
+          simple_uart_putstring(" ; Z = " );
+          itoac(data[2]*CONVERSION_G,3);
+                 
+          
+          // computes the angle alpha between the sensor 
+          angle = alpha_angle_acc(data[0], data[1], data[2]); 
+          simple_uart_putstring(" ; a = " );
+          itoac(angle,3);
+          
+          simple_uart_putstring(" lvl battery = " );
+          itoac(packet[11]*0.004706*3.79,2);
+        }
+        else if(id == ID_COMMAND)                             // data from debugger
+        {
+           simple_uart_putstring("Count = " );
+           count_encoder = (uint8_t) packet[5];
+           itoac(count_encoder,0);
+          
+        }
+        else
+        {
+           simple_uart_putstring("Error ! Data ID does not fit" );
+        }
         
+        simple_uart_putstring("      \r" );
       }
       else
       {
-         simple_uart_putstring("Error ! Data ID does not fit" );
+        simple_uart_putstring("Other user ID" );
+        simple_uart_putstring("      \r" );
       }
-      
-      simple_uart_putstring("      \r" );
-
       
     }
 

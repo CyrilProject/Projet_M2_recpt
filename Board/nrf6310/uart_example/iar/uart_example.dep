@@ -2,191 +2,88 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>120222274</fileChecksum>
+  <fileChecksum>3893592394</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-<<<<<<< Updated upstream
-      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
-      <file>$PROJ_DIR$\..\acc_gyr_computation.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</file>
+      <file>$PROJ_DIR$\..\radio_config.c</file>
       <file>$PROJ_DIR$\..\acc_gyr_computation.c</file>
+      <file>$PROJ_DIR$\..\radio_config.h</file>
+      <file>$PROJ_DIR$\..\acc_gyr_computation.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</file>
       <file>$PROJ_DIR$\..\main.c</file>
-      <file>$PROJ_DIR$\..\radio_config.c</file>
-      <file>$PROJ_DIR$\..\radio_config.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</file>
-      <file>$TOOLKIT_DIR$\lib\m6M_tl.a</file>
-      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.__cstat.et</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_gpio.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\simple_uart.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-      <file>$TOOLKIT_DIR$\config\linker\NordicSemi\nRF51822_QFAA.icf</file>
-=======
-      <file>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</file>
->>>>>>> Stashed changes
-      <file>$PROJ_DIR$\Debug\Obj\radio_config.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Obj\acc_gyr_computation.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Exe\uart_example_iar.hex</file>
-      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.pbi</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\boards.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\simple_uart.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\iar_startup_nrf51.o</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf.h</file>
-      <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-<<<<<<< Updated upstream
-      <file>$TOOLKIT_DIR$\lib\dl6M_tln.a</file>
-      <file>$TOOLKIT_DIR$\lib\rt6M_tl.a</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\boards\nrf6310.h</file>
-      <file>$PROJ_DIR$\Debug\List\uart_example.map</file>
-      <file>$PROJ_DIR$\Debug\Obj\simple_uart.o</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf.h</file>
-=======
-      <file>$TOOLKIT_DIR$\lib\rt6M_tl.a</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\boards\nrf6310.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_deprecated.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\system_nrf51.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\acc_gyr_computation.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\simple_uart.o</file>
-      <file>$PROJ_DIR$\Debug\List\uart_example.map</file>
-      <file>$TOOLKIT_DIR$\lib\dl6M_tln.a</file>
->>>>>>> Stashed changes
-      <file>$PROJ_DIR$\Debug\Obj\uart_example.pbd</file>
-      <file>$PROJ_DIR$\Debug\Obj\acc_gyr_computation.pbi</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_deprecated.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\system_nrf51.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_delay.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
-      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmInstr.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\acc_gyr_computation.o</file>
-      <file>$TOOLKIT_DIR$\config\linker\NordicSemi\nRF51822_QFAA.icf</file>
-      <file>$PROJ_DIR$\..\radio_config.c</file>
+      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
       <file>$PROJ_DIR$\..\..\..\..\Include\nrf51.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\compiler_abstraction.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.o</file>
-<<<<<<< Updated upstream
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
       <file>$TOOLKIT_DIR$\CMSIS\Include\core_cm0.h</file>
-      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmFunc.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\simple_uart.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-=======
-      <file>$PROJ_DIR$\..\acc_gyr_computation.c</file>
-      <file>$PROJ_DIR$\..\radio_config.h</file>
-      <file>$PROJ_DIR$\..\acc_gyr_computation.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</file>
-      <file>$PROJ_DIR$\..\main.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-      <file>$PROJ_DIR$\..\..\..\..\Source\templates\system_nrf51.c</file>
-      <file>$PROJ_DIR$\Debug\Exe\uart_example.out</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\radio_config.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
-      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmFunc.h</file>
-      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cm0.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\simple_uart.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\radio_config.o</file>
->>>>>>> Stashed changes
-      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_bitfields.h</file>
-      <file>$TOOLKIT_DIR$\lib\m6M_tl.a</file>
-      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_gpio.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\simple_uart.__cstat.et</file>
       <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\system_nrf51.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_gpio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_deprecated.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\simple_uart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\boards.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf51_bitfields.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmInstr.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\compiler_abstraction.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\boards\nrf6310.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\Debug\Exe\uart_example.out</file>
+      <file>$PROJ_DIR$\Debug\Obj\acc_gyr_computation.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\simple_uart.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\acc_gyr_computation.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\iar_startup_nrf51.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\radio_config.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\radio_config.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\simple_uart.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\system_nrf51.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart_example.pbd</file>
+      <file>$PROJ_DIR$\Debug\Exe\uart_example_iar.hex</file>
+      <file>$TOOLKIT_DIR$\lib\rt6M_tl.a</file>
+      <file>$PROJ_DIR$\Debug\List\uart_example.map</file>
+      <file>$TOOLKIT_DIR$\lib\m6M_tl.a</file>
+      <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+      <file>$TOOLKIT_DIR$\config\linker\NordicSemi\nRF51822_QFAA.icf</file>
+      <file>$TOOLKIT_DIR$\lib\dl6M_tln.a</file>
+      <file>$TOOLKIT_DIR$\CMSIS\Include\core_cmFunc.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\nrf_delay.h</file>
     </outputs>
     <file>
-<<<<<<< Updated upstream
-      <name>[ROOT_NODE]</name>
-      <outputs>
-        <tool>
-          <name>ILINK</name>
-          <file> 31 36</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\acc_gyr_computation.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 40</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 50</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 22</file>
-=======
       <name>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 6</file>
+          <file> 43</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 16</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 61</file>
->>>>>>> Stashed changes
+          <file> 37</file>
         </tool>
       </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< Updated upstream
-          <file> 19 61 16 46 60 3 44 54 45 48 10 4</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 4 44 61 46 54 60 19 45 48 3 10 16</file>
-=======
-          <file> 20 49 21 50 57 23 47 25 27 46 26 55 9 24 41 22 43 62 31 13 14 45 44</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 21 49 23 41 43 62 22 25 9 31 46 26 55 20 45 14 50 13 27 47 44 24 57</file>
->>>>>>> Stashed changes
-        </tool>
-      </inputs>
     </file>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
-<<<<<<< Updated upstream
-          <name>AARM</name>
-          <file> 28</file>
-=======
           <name>ILINK</name>
-          <file> 40 17</file>
->>>>>>> Stashed changes
+          <file> 34 48</file>
         </tool>
       </outputs>
     </file>
@@ -195,38 +92,21 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-<<<<<<< Updated upstream
-          <file> 27</file>
+          <file> 41</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 58</file>
-=======
           <file> 42</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 48</file>
->>>>>>> Stashed changes
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 1</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-<<<<<<< Updated upstream
-          <name>ICCARM</name>
-          <file> 59 44 61 46 54 60 19 45 48 38 51 55 49 17 42 56 43 62 41 52 57 15 25 35 9 4 3 10 16 0 2</file>
-=======
           <name>BICOMP</name>
-          <file> 21 26 31 49 41 23 9 13 14 22 25 20 55 24 50 27 46 45 43 62 34</file>
+          <file> 14 28 10 54 13 24 7 18 15 56 25 27 19 57 26 29 11 53 17 12 3</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 34 24 9 31 46 21 49 23 41 43 62 22 25 26 55 20 45 14 50 13 27</file>
->>>>>>> Stashed changes
+          <file> 3 57 7 10 11 14 54 24 13 17 12 56 25 28 19 27 53 15 26 18 29</file>
         </tool>
       </inputs>
     </file>
@@ -235,69 +115,20 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-<<<<<<< Updated upstream
-          <file> 29</file>
+          <file> 38</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 30</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 21</file>
-=======
-          <file> 15</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 28</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 2</file>
->>>>>>> Stashed changes
+          <file> 35</file>
         </tool>
       </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< Updated upstream
-          <file> 44 49 51 61 54 46 38 41 43 45 48 42 17 47 62 52 55 56 60 19 9</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 9 47 38 51 55 44 61 46 54 60 19 45 48 49 17 42 56 43 62 41 52</file>
-=======
-          <file> 62 49 54 23 43 53 21 41 22 25 59 35</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 35 21 49 23 41 43 62 22 25 53 59 54</file>
->>>>>>> Stashed changes
-        </tool>
-      </inputs>
     </file>
     <file>
-<<<<<<< Updated upstream
-      <name>$PROJ_DIR$\..\..\..\..\Source\simple_uart\simple_uart.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 26</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 37</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 18</file>
-=======
       <name>$PROJ_DIR$\..\..\..\..\Source\templates\iar\iar_startup_nrf51.s</name>
       <outputs>
         <tool>
           <name>AARM</name>
-          <file> 8</file>
+          <file> 39</file>
         </tool>
       </outputs>
     </file>
@@ -306,34 +137,21 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 7</file>
+          <file> 40</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 38</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 56</file>
->>>>>>> Stashed changes
+          <file> 33</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-<<<<<<< Updated upstream
-          <file> 42 61 44 62 15 46 57 48 52 55 49 17 38 47 54 45 60 19 51 41 43 56 59</file>
+          <file> 53 54 55 56 17 10 9 16 15 14 7 3 13 12 18 19 20 21 22 4 23 24 25 26 29 11 28 27 30 31 32</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 44 61 46 54 60 19 45 48 38 51 55 49 17 42 56 43 62 41 52 57 59 47 15</file>
-=======
-          <file> 41 49 53 59 57 62 13 55 9 34 22 43 31 14 21 45 52 47 5 35 60 23 25 50 27 46 26 20 44 12 54</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 44 21 49 23 41 43 62 22 25 9 31 46 26 55 20 45 14 50 13 27 47 57 5 12 34 35 53 59 54 60 52</file>
->>>>>>> Stashed changes
+          <file> 30 14 54 24 13 17 12 56 25 7 10 11 28 19 27 53 15 26 18 29 21 16 22 31 3 4 55 9 32 23 20</file>
         </tool>
       </inputs>
     </file>
@@ -342,76 +160,30 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-<<<<<<< Updated upstream
-          <file> 24</file>
+          <file> 44</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 53</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 14</file>
-=======
-          <file> 4</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 32</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 58</file>
->>>>>>> Stashed changes
+          <file> 36</file>
         </tool>
       </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< Updated upstream
-          <file> 51 19 61 55 44 17 56 38 46 60 41 59 54 45 48 62 43 49 42 52</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 44 61 46 54 60 19 45 48 59 38 51 55 49 17 42 56 43 62 41 52</file>
-=======
-          <file> 31 62 49 46 21 55 45 9 23 43 13 44 41 22 25 50 14 26 20 27</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 21 49 23 41 43 62 22 25 44 9 31 46 26 55 20 45 14 50 13 27</file>
->>>>>>> Stashed changes
-        </tool>
-      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Debug\Exe\uart_example.out</name>
       <outputs>
         <tool>
           <name>ILINK</name>
-<<<<<<< Updated upstream
-          <file> 36</file>
+          <file> 48</file>
         </tool>
         <tool>
           <name>OBJCOPY</name>
-          <file> 23</file>
-=======
-          <file> 17</file>
-        </tool>
-        <tool>
-          <name>OBJCOPY</name>
-          <file> 3</file>
->>>>>>> Stashed changes
+          <file> 46</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ILINK</name>
-<<<<<<< Updated upstream
-          <file> 20 50 28 58 30 37 53 32 34 13 33</file>
-=======
-          <file> 29 28 8 38 48 16 32 10 11 51 18</file>
->>>>>>> Stashed changes
+          <file> 51 35 39 33 42 37 36 50 47 49 52</file>
         </tool>
       </inputs>
     </file>
@@ -422,9 +194,6 @@
     <forcedrebuild>
       <name>[MULTI_TOOL]</name>
       <tool>ILINK</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>[REBUILD_ALL]</name>
     </forcedrebuild>
   </configuration>
 </project>
