@@ -121,7 +121,7 @@ Execution is blocked until UART peripheral detects all characters have been sent
  */
 int main(void)
 {
-  int16_t data1, data2, data[3], user_id = 0xFFFF;
+  int16_t data1, data2, data[3], user_id = 0;
   int8_t packet_size, id;
   simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
   double angle = 0.0;
@@ -176,60 +176,67 @@ int main(void)
     while(NRF_RADIO->EVENTS_END == 0U)
     {
     }
-
-    simple_uart_putstring("\n\rAddress recieved event :\n\r" );
-    
     // Write received data to port 1 on CRC match
     if (NRF_RADIO->CRCSTATUS == 1U)
     {
+      // Checks user ID
       packet_size = packet[0];                          
       user_id = (int16_t)packet[2] + ((int16_t)packet[3] << 8); // USER ID
-      simple_uart_putstring("\n\rID recieved :\n\r" );
       
       if(user_id == (int16_t)USER_ID)
       {
+        // Checks the message ID (type of data being transmited
         id = packet[4];                                 // packet id
         if(id == (int8_t)ID_ACC)                        // data from IMU
         {
+          /* Receiving acceleration data */
+          
           data1 = (int16_t)packet[5];                   // x lsb
           data2 = (int16_t)packet[6] << 8;              // x msb
-          data[0] = data1 + data2;                        // concat
+          data[0] = data1 + data2;                      // x concat
           simple_uart_putstring("X = " );
           itoac(data[0]*CONVERSION_G,3);
           
           data1 = (int16_t)packet[7];                   // y lsb
           data2 = (int16_t)packet[8] << 8;              // y msb
-          data[1] = data1 + data2;                        // concat
+          data[1] = data1 + data2;                      // y concat
           simple_uart_putstring(" ; Y = " );
           itoac(data[1]*CONVERSION_G,3);
 
           data1 = (int16_t)packet[9];                   // z lsb
           data2 = (int16_t)packet[10] << 8;             // z msb
-          data[2] = data1 + data2;                        // z concat
+          data[2] = data1 + data2;                      // z concat
           simple_uart_putstring(" ; Z = " );
           itoac(data[2]*CONVERSION_G,3);
-                 
-          
-          // computes the angle alpha between the sensor 
-          angle = alpha_angle_acc(data[0], data[1], data[2]); 
+            
+          /* computes the angle alpha between the sensor and the horizon */
+          angle = alpha_angle_acc(data[0], data[1], data[2]);           
           simple_uart_putstring(" ; a = " );
           itoac(angle,3);
+          
+          /* Receiving rotation speed data */
+          
+//          data1 = (int16_t)packet[11];                  // z gyr lsb
+//          data2 = (int16_t)packet[12] << 8;             // z gyr msb
+//          data[2] = data1 + data2;                      // z concat
+//          simple_uart_putstring(" ; Z = " );
+//          itoac(data[2],3);
+          
+          /* Receiving battery level */
           
           simple_uart_putstring(" lvl battery = " );
           itoac(packet[11]*0.004706*3.79,2);
         }
-        else if(id == ID_COMMAND)                             // data from debugger
-        {
+        else if(id == ID_COMMAND)                       // data from debugger
+        {  
            simple_uart_putstring("Count = " );
-           count_encoder = (uint8_t) packet[5];
-           itoac(count_encoder,0);
-          
+           count_encoder = (uint8_t)packet[5];
+           itoac(count_encoder,0);     
         }
         else
         {
            simple_uart_putstring("Error ! Data ID does not fit" );
         }
-        
         simple_uart_putstring("      \r" );
       }
       else
@@ -239,7 +246,6 @@ int main(void)
       }
       
     }
-
     NRF_RADIO->EVENTS_DISABLED = 0U;
 
     // Disable radio
@@ -248,27 +254,8 @@ int main(void)
     while(NRF_RADIO->EVENTS_DISABLED == 0U)
     {
     }
-  }
-  
+  } 
 }
-
-//    uint8_t cr = simple_uart_get();
-//    simple_uart_put(cr);
-//
-//    if(cr == 'q' || cr == 'Q')
-//    {
-//      uart_quit();
-//      while(1){}
-//    }
-//  }
-//
-//#else
-//  /* This part of the example is just for testing, can be removed if you do not have a loopback setup */
-//
-//  while(true)
-//  {
-//    uart_loopback_test();
-//  }
 
 
   
