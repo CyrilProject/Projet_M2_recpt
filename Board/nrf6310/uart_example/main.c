@@ -126,6 +126,9 @@ int main(void)
   simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
   double angle = 0.0;
   uint8_t count_encoder = 0;
+  uint8_t pos_period = 0;
+  uint8_t half_turn_period = 0;
+  double fp = 0;
 
   // ERROR_PIN configure as output
   nrf_gpio_cfg_output(ERROR_PIN);
@@ -165,7 +168,7 @@ int main(void)
     {
     }
     
-    simple_uart_putstring("\n\rRadio event ready :\n\r" );
+    //simple_uart_putstring("\n\rRadio event ready :\n\r" );
 
     NRF_RADIO->EVENTS_END = 0U;
 
@@ -210,9 +213,43 @@ int main(void)
           itoac(data[2]*CONVERSION_G,3);
             
           /* computes the angle alpha between the sensor and the horizon */
-          angle = alpha_angle_acc(data[0], data[1], data[2]);           
-          simple_uart_putstring(" ; a = " );
-          itoac(angle,3);
+          //angle = alpha_angle_acc(data[0], data[1], data[2]);           
+          //simple_uart_putstring(" ; a = " );
+          //itoac(angle,3);
+          
+          /* Rotating frequency */
+          
+          if (data[0] > 0)
+          {
+            pos_period++;
+            half_turn_period = 1;
+          }
+          else
+          {
+            if(pos_period != 0)
+              fp = 180/(0.1 * (float)pos_period)/360*60;
+            else 
+              fp = 0;
+            if (half_turn_period)
+            {
+              simple_uart_putstring(" ; fp = ");
+              
+              if (fp >= 200)
+              {
+                simple_uart_putstring(" error "); // above 3,3 turn/sec value is suposed to be an error
+                pos_period = 0;
+                fp = 0;
+                half_turn_period = 0;
+              }
+              else
+              {
+                itoac(fp,0);
+                pos_period = 0;
+                fp = 0;
+                half_turn_period = 0;
+              }
+            }
+          }          
           
           /* Receiving rotation speed data */
           
@@ -224,7 +261,7 @@ int main(void)
           
           /* Receiving battery level */
           
-          simple_uart_putstring(" lvl battery = " );
+          simple_uart_putstring(" \n\rlvl battery = " );
           itoac(packet[11]*0.004706*3.79,2);
         }
         else if(id == ID_COMMAND)                       // data from debugger
@@ -232,6 +269,11 @@ int main(void)
            simple_uart_putstring("Count = " );
            count_encoder = (uint8_t)packet[5];
            itoac(count_encoder,0);     
+           
+           /* Receiving battery level from the trigger */
+          
+          simple_uart_putstring("lvl battery = " );
+          itoac(packet[6]*0.004706*3.79,2);      
         }
         else
         {
