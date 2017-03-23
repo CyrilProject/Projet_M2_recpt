@@ -124,11 +124,11 @@ int main(void)
   int16_t data1, data2, data[3], user_id = 0;
   int8_t packet_size, id;
   simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
-  double angle = 0.0;
+//  double angle = 0.0;
   uint8_t count_encoder = 0;
-  uint8_t pos_period = 0;
-  uint8_t half_turn_period = 0;
-  double fp = 0;
+//  uint8_t pos_period = 0;
+//  uint8_t half_turn_period = 0;
+//  double fp = 0;
 
   // ERROR_PIN configure as output
   nrf_gpio_cfg_output(ERROR_PIN);
@@ -198,19 +198,22 @@ int main(void)
           data2 = (int16_t)packet[6] << 8;              // x msb
           data[0] = data1 + data2;                      // x concat
           simple_uart_putstring("X = " );
-          itoac(data[0]*CONVERSION_G,3);
+//          itoac(data[0]*CONVERSION_G,3);
+          itoac(data[0]*0.0152593/6,3);
           
           data1 = (int16_t)packet[7];                   // y lsb
           data2 = (int16_t)packet[8] << 8;              // y msb
           data[1] = data1 + data2;                      // y concat
           simple_uart_putstring(" ; Y = " );
-          itoac(data[1]*CONVERSION_G,3);
+//          itoac(data[1]*CONVERSION_G,3);
+          itoac(data[1]*0.0152593/6,3);
 
           data1 = (int16_t)packet[9];                   // z lsb
           data2 = (int16_t)packet[10] << 8;             // z msb
           data[2] = data1 + data2;                      // z concat
           simple_uart_putstring(" ; Z = " );
-          itoac(data[2]*CONVERSION_G,3);
+//          itoac(data[2]*CONVERSION_G,3);
+          itoac(data[2]*0.0152593/6,3);
             
           /* computes the angle alpha between the sensor and the horizon */
           //angle = alpha_angle_acc(data[0], data[1], data[2]);           
@@ -219,37 +222,37 @@ int main(void)
           
           /* Rotating frequency */
           
-          if (data[0] > 0)
-          {
-            pos_period++;
-            half_turn_period = 1;
-          }
-          else
-          {
-            if(pos_period != 0)
-              fp = 180/(0.1 * (float)pos_period)/360*60;
-            else 
-              fp = 0;
-            if (half_turn_period)
-            {
-              simple_uart_putstring(" ; fp = ");
-              
-              if (fp >= 200)
-              {
-                simple_uart_putstring(" error "); // above 3,3 turn/sec value is suposed to be an error
-                pos_period = 0;
-                fp = 0;
-                half_turn_period = 0;
-              }
-              else
-              {
-                itoac(fp,0);
-                pos_period = 0;
-                fp = 0;
-                half_turn_period = 0;
-              }
-            }
-          }          
+//          if (data[0] > 0)
+//          {
+//            pos_period++;
+//            half_turn_period = 1;
+//          }
+//          else
+//          {
+//            if(pos_period != 0)
+//              fp = 180/(0.1 * (float)pos_period)/360*60;
+//            else 
+//              fp = 0;
+//            if (half_turn_period)
+//            {
+//              simple_uart_putstring(" ; fp = ");
+//              
+//              if (fp >= 200)
+//              {
+//                simple_uart_putstring(" error "); // above 3,3 turn/sec value is suposed to be an error
+//                pos_period = 0;
+//                fp = 0;
+//                half_turn_period = 0;
+//              }
+//              else
+//              {
+//                itoac(fp,0);
+//                pos_period = 0;
+//                fp = 0;
+//                half_turn_period = 0;
+//              }
+//            }
+//          }          
           
           /* Receiving rotation speed data */
           

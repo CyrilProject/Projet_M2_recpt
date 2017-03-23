@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "Z:\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\settings\uart_example.Debug.general.xcl" --backend -f "Z:\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\settings\uart_example.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "C:\Users\fabian\Documents\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\settings\uart_example.Debug.general.xcl" --backend -f "C:\Users\fabian\Documents\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\settings\uart_example.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "Z:\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\settings\uart_example.Debug.general.xcl" "--debug_file=%~1" --backend -f "Z:\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\settings\uart_example.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "C:\Users\fabian\Documents\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\settings\uart_example.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\fabian\Documents\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\settings\uart_example.Debug.driver.xcl" 
 
 @echo off 
 :end

@@ -1,8 +1,8 @@
-"C:\Users\CYRIM\Documents\GitHub\Projet_M2_recpt\Source\simple_uart\simple_uart.c"
+"C:\Users\fabian\Documents\GitHub\Projet_M2_recpt\Source\simple_uart\simple_uart.c"
 -std=c99
 -ferror-limit=100
 -I
-C:\Users\CYRIM\Documents\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\..\..\..\..\Include
+C:\Users\fabian\Documents\GitHub\Projet_M2_recpt\Board\nrf6310\uart_example\iar\..\..\..\..\Include
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -I
@@ -10,7 +10,7 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c
 -I
-C:\Users\CYRIM\Documents\GitHub\Projet_M2_recpt\Include
+C:\Users\fabian\Documents\GitHub\Projet_M2_recpt\Include
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CMSIS\Include
 -DDEBUG=1
