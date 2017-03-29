@@ -199,21 +199,21 @@ int main(void)
           data[0] = data1 + data2;                      // x concat
           simple_uart_putstring("X = " );
 //          itoac(data[0]*CONVERSION_G,3);
-          itoac(data[0]*0.0152593/6,3);
+          itoac(data[0]*0.0152593,3);
           
           data1 = (int16_t)packet[7];                   // y lsb
           data2 = (int16_t)packet[8] << 8;              // y msb
           data[1] = data1 + data2;                      // y concat
           simple_uart_putstring(" ; Y = " );
 //          itoac(data[1]*CONVERSION_G,3);
-          itoac(data[1]*0.0152593/6,3);
+          itoac(data[1]*0.0152593,3);
 
           data1 = (int16_t)packet[9];                   // z lsb
           data2 = (int16_t)packet[10] << 8;             // z msb
           data[2] = data1 + data2;                      // z concat
           simple_uart_putstring(" ; Z = " );
 //          itoac(data[2]*CONVERSION_G,3);
-          itoac(data[2]*0.0152593/6,3);
+          itoac(data[2]*0.0152593,3);
             
           /* computes the angle alpha between the sensor and the horizon */
           //angle = alpha_angle_acc(data[0], data[1], data[2]);           
@@ -264,8 +264,12 @@ int main(void)
           
           /* Receiving battery level */
           
-          simple_uart_putstring(" \n\rlvl battery = " );
+          simple_uart_putstring(" lvl battery = " );
           itoac(packet[11]*0.004706*3.79,2);
+          
+          simple_uart_putstring(" speed = " );
+          itoac(data[2]*0.0152593/6,3);
+          simple_uart_putstring(" \n" );
         }
         else if(id == ID_COMMAND)                       // data from debugger
         {  
@@ -276,7 +280,9 @@ int main(void)
            /* Receiving battery level from the trigger */
           
           simple_uart_putstring("lvl battery = " );
-          itoac(packet[6]*0.004706*3.79,2);      
+          itoac(packet[6]*0.004706*3.79,2);    
+          
+          
         }
         else
         {

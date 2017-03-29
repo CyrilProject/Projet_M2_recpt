@@ -121,7 +121,7 @@ TraceShowTime=0
 TraceShowTimeFreq=1000000
 [DebugChecksum]
 <<<<<<< Updated upstream
-Checksum=969024242
+Checksum=-304995221
 =======
 Checksum=1724811454
 >>>>>>> Stashed changes
@@ -137,6 +137,10 @@ MixedMode=1
 [Trace1]
 Enabled=0
 ShowSource=1
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Count=0
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -144,6 +148,9 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[Aliases]
+Count=0
+SuppressDialog=0
 [DriverProfiling]
 Enabled=0
 Mode=1
@@ -154,10 +161,3 @@ Exclusions=
 Enabled=0
 [CallStackStripe]
 ShowTiming=1
-[Disassemble mode]
-mode=0
-[Breakpoints2]
-Count=0
-[Aliases]
-Count=0
-SuppressDialog=0
