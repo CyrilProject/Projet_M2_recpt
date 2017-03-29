@@ -10,31 +10,7 @@
  *
  */
 
-/** @file
- * @brief Example project on UART usage to communicate with PC.
- * @defgroup uart_example UART example
- * @{
- * @ingroup nrf_examples_nrf6310
- *
- * @brief Example of basic UART usage.
- *
- * Simple UART example that transmits and receives through the configured pins as serial device.
- * The configure pins needs to be redirected to a COM port (for some terminal program like putty which
- * can listen to this COM port through a terminal session)
- * When the program start it will transmit "START: " through this serial device using @ref simple_uart_putstring
- * and this should be visible on the terminal.
- * All typed characters on this terminal will be transmitted to this program through @ref simple_uart_get and
- * when an exit character 'q' or 'Q' is typed this program will end into an infinite loop after transmitting 
- * "EXIT!" on the new line of the terminal.
- * @note This example is not just for COM ports but can be used for any UART connection, COM port redirection
- *       is for visual verification.
- * @note Setting the define ENABLE_LOOPBACK_TEST will assume that the TX_PIN_NUMBER is connected to RX_PIN_NUMBER
- *       and this example is used to test the loopback. In this case no com port can be used as the data flows
- *       from TX to RX and ERROR_PIN is set high for any loss of data.
- * @note Configure your terminal application for 38400 bauds, 8 data bits and 1 stop bit.
- *
- * @image html example_board_setup_a.png "Use board setup A for this example."
- */
+
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -179,12 +155,17 @@ int main(void)
     while(NRF_RADIO->EVENTS_END == 0U)
     {
     }
+    
+      //simple_uart_putstring("packet ok \r\n" );
+    
     // Write received data to port 1 on CRC match
     if (NRF_RADIO->CRCSTATUS == 1U)
     {
       // Checks user ID
       packet_size = packet[0];                          
       user_id = (int16_t)packet[2] + ((int16_t)packet[3] << 8); // USER ID
+      
+      //simple_uart_putstring(" crc ok ");
       
       if(user_id == (int16_t)USER_ID)
       {
@@ -279,7 +260,7 @@ int main(void)
            
            /* Receiving battery level from the trigger */
           
-          simple_uart_putstring("lvl battery = " );
+          simple_uart_putstring(" lvl battery = " );
           itoac(packet[6]*0.004706*3.79,2);    
           
           
